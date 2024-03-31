@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "python-postgres-template"
+name = "feeding-routines"
 version = "0.1.0"
 description = ""
 authors = ["template-author"]
