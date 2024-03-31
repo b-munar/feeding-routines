@@ -22,7 +22,7 @@ def authorization(func):
                     }
             
             reqUrl = os.getenv('AUTH_HOST')+":"+os.getenv('AUTH_PORT')+os.getenv('AUTH_PATH')
-            response = requests.request("POST", reqUrl, headers=headers)
+            response = requests.request("GET", reqUrl, headers=headers)
             if response.status_code == 202:
                 kwargs["user"] = response.json()
                 return func(*args, **kwargs)
