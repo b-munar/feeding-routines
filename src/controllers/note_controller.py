@@ -22,6 +22,12 @@ class NoteController(Resource):
         
         note_create_dump = note_create_schema.dump(request_json)
         note_create_dump["user"] = kwargs["user"]["id"]
+        
+        # token = kwargs["token"]
+        # If you need to use another microservice,
+        # use this token with the request library,
+        # remember to paste the Bearer before the token
+        
         session = Session()
         new_note = NoteModel(**note_create_dump)
         session.add(new_note)

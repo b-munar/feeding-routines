@@ -21,10 +21,11 @@ def authorization(func):
                        "Authorization": f"Bearer {token}"
                     }
             
-            reqUrl = os.getenv('AUTH_HOST')+":"+os.getenv('AUTH_PORT')+os.getenv('AUTH_PATH')
+            reqUrl = os.getenv('AUTH_HOST')+":"+os.getenv('AUTH_PORT')+os.getenv('AUTH_PATH_AUTH')
             response = requests.request("GET", reqUrl, headers=headers)
             if response.status_code == 202:
                 kwargs["user"] = response.json()
+                kwargs["token"] = token
                 return func(*args, **kwargs)
             else:
                  return "", 401
