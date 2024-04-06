@@ -34,9 +34,9 @@ class FeedProfileController(Resource):
         session.add(new_profile)
         session.commit()
 
-        note_created_schema = FeedProfileSerializedSchema()
-        note_created_dump = note_created_schema.dump(new_profile)
-        return note_created_dump, 201
+        feeding_routines_created_schema = FeedProfileSerializedSchema()
+        feeding_routines_created_dump = feeding_routines_created_schema.dump(new_profile)
+        return feeding_routines_created_dump, 201
     
     def get(self, **kwargs):
         feed_profile_schema = FeedProfileSerializedSchema()

@@ -6,8 +6,8 @@ from src.controllers.feed_profile_controller import FeedProfileController
 def create_app():
     app = Flask(__name__)
     api = Api(app)
-    api.add_resource(Ping, '/notes/ping')
-    api.add_resource(FeedProfileController, '/feed-routine')
+    api.add_resource(Ping, '/feeding-routines/ping')
+    api.add_resource(FeedProfileController, '/feeding-routines')
     return app
 
 if __name__ == "__main__":
