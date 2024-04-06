@@ -11,4 +11,4 @@ class FeedProfileModel(Base):
     meals_per_day = Column(Integer(), nullable=False)
     alergies = Column(String(), nullable=False)
     health_issues = Column(String(), nullable=False)
-    time_to_cook = Column(String(), nullable=False)
+    time_to_cook = Column(Integer(), nullable=False)

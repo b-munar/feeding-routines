@@ -1,9 +1,9 @@
 from src.database.base import Base
 from src.database.engine import engine
 
-from src.models.note_model import NoteModel
+from src.models.feed_profile_model import FeedProfileModel
 
-table_objects = [NoteModel.__table__]
+table_objects = [FeedProfileModel.__table__]
 
 if __name__ == "__main__":
     Base.metadata.create_all(

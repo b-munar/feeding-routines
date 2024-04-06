@@ -6,7 +6,7 @@ from src.models.feed_profile_model import FeedProfileModel
 from src.schemas.feed_profile_schema import FeedProfileDeserializedSchema, FeedProfileSerializedSchema
 from src.utils.authorization import authorization
 
-class NoteController(Resource):
+class FeedProfileController(Resource):
     method_decorators = [authorization]
     def post(self, **kwargs):
         if(request.data):
@@ -18,6 +18,7 @@ class NoteController(Resource):
         
         errors = feed_profile_create_schema.validate(request_json)
         if errors:
+            print(errors)
             return "", 400
         
         feed_profile_create_dump = feed_profile_create_schema.dump(request_json)
