@@ -4,10 +4,11 @@ from datetime import datetime, timezone
 from uuid import uuid4
 from sqlalchemy.dialects.postgresql import UUID
 
-class NoteModel(Base):
-    __tablename__ = 'note'
+class FeedProfileModel(Base):
+    __tablename__ = 'feed_profile'
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
     user = Column(UUID(as_uuid=True), nullable=False)
-    note = Column(String(), nullable=False)
-    createdAt = Column(DateTime(), default=datetime.now(timezone.utc) )
-    updateAt = Column(DateTime(), default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc) )
+    meals_per_day = Column(Integer(), nullable=False)
+    alergies = Column(String(), nullable=False)
+    health_issues = Column(String(), nullable=False)
+    time_to_cook = Column(Integer(), nullable=False)

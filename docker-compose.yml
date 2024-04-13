@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-  note_db:
+  feeding_routines_db:
     image: postgres:15-bullseye
     environment:
       POSTGRES_DB: postgres
@@ -11,14 +11,14 @@ services:
     ports:
       - 6100:5432
     networks:
-      - note_net
+      - feeding_routines_net
     deploy:  
       resources:
         limits:
           cpus: '0.2'
           memory: 300M
 
-  note:
+  feeding_routines:
     build: .
     environment:
       GUNICORN: false
@@ -27,17 +27,17 @@ services:
     ports:
       - 6150:80
     networks:
-      - note_net
+      - feeding_routines_net
     deploy:
       resources:
         limits:
           cpus: '0.2'
           memory: 300M
     depends_on:
-      note_db:
+      feeding_routines_db:
         condition: service_started
 
 networks:
-  note_net:
+  feeding_routines_net:
     driver: bridge
-    name: note_net
+    name: feeding_routines_net
