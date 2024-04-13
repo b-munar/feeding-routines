@@ -46,5 +46,5 @@ class FeedProfileController(Resource):
         session.close()
         
         profiles = [feed_profile_schema.dump(profile) for profile in query]
-        return profiles, 200
+        return {"profiles":profiles}, 200
 
