@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: service-feeding-routines
+  annotations:
+    cloud.google.com/backend-config: '{"default": "feeding-routines-config"}'
+spec:
+  type: NodePort
+  selector:
+    app: feeding-routines
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 31026
