@@ -1,0 +1,87 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feeding-routines
+  labels:
+    app: feeding-routines
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: feeding-routines
+  template:
+    metadata:
+      labels:
+        app: feeding-routines
+    spec:
+      containers:
+        - name: feeding-routines
+          image: my-app-image
+          resources:
+            limits:
+              memory: "100Mi"
+              cpu: "0.2"
+            requests:
+              memory: "100Mi"
+              cpu: "0.2"
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+
+          env:
+            - name: "AUTH_HOST"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: AUTH_HOST
+            - name: "AUTH_PATH_AUTH"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: AUTH_PATH_AUTH
+            - name: "AUTH_PORT"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: AUTH_PORT
+
+            - name: "FEEDING_ROUTINES_DB_USER"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: FEEDING_ROUTINES_DB_USER
+            - name: "FEEDING_ROUTINES_DB_HOST"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: FEEDING_ROUTINES_DB_HOST
+            - name: "FEEDING_ROUTINES_DB_NAME"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: FEEDING_ROUTINES_DB_NAME
+            - name: "FEEDING_ROUTINES_DB_PASSWORD"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: FEEDING_ROUTINES_DB_PASSWORD
+            - name: "FEEDING_ROUTINES_DB_PORT"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: FEEDING_ROUTINES_DB_PORT
+
+
+
+---
+
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: feeding-routines-config
+spec:
+  healthCheck:
+    checkIntervalSec: 30
+    port: 80
+    type: HTTP
+    requestPath: /feeding-routines/ping

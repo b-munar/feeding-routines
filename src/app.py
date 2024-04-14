@@ -1,10 +1,12 @@
 from flask import Flask
 from flask_restful import Api
+from flask_cors import CORS
 from src.controllers.ping_controller import Ping
 from src.controllers.feed_profile_controller import FeedProfileController
 
 def create_app():
     app = Flask(__name__)
+    CORS(app)
     api = Api(app)
     api.add_resource(Ping, '/feeding-routines/ping')
     api.add_resource(FeedProfileController, '/feeding-routines')
