@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "27df0468-ac14-405c-b8fc-42f3a4591073",
+		"name": "flask-feeding-routines",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34080647"
+	},
+	"item": [
+		{
+			"name": "Get Feeding routines",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOWEzYWQ3OC02ZDNjLTQ2ZTMtOWM0Mi04NTdjYTNlYzUyMjAiLCJpYXQiOjE3MTMwMzA3NzIsImV4cCI6MTcxMzA0MTU3Mn0.ZRpdFqKPXYnZnf5oNT-PhIF1rFeJSQlbWYgzHRxLKjk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6150/feeding-routines",
+					"host": [
+						"localhost"
+					],
+					"port": "6150",
+					"path": [
+						"feeding-routines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Feeding routines",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOWEzYWQ3OC02ZDNjLTQ2ZTMtOWM0Mi04NTdjYTNlYzUyMjAiLCJpYXQiOjE3MTMwMzA3NzIsImV4cCI6MTcxMzA0MTU3Mn0.ZRpdFqKPXYnZnf5oNT-PhIF1rFeJSQlbWYgzHRxLKjk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"meals_per_day\": 3,\n    \"alergies\": \"Ninguna\",\n    \"health_issues\": \"Arritmia\",\n    \"time_to_cook\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:6150/feeding-routines",
+					"host": [
+						"localhost"
+					],
+					"port": "6150",
+					"path": [
+						"feeding-routines"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
