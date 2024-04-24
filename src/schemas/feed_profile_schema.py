@@ -12,4 +12,12 @@ class FeedProfileSerializedSchema(Schema):
     alergies = fields.String()
     health_issues = fields.String()
     time_to_cook = fields.Integer()
+
+class FeedProfilesSerializedSchema(Schema):
+    id = fields.UUID()
+    user = fields.UUID()
+    meals_per_day = fields.Integer()
+    alergies = fields.String()
+    health_issues = fields.String()
+    time_to_cook = fields.Integer()
     

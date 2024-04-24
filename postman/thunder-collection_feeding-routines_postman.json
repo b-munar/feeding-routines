@@ -1,0 +1,125 @@
+{
+    "info": {
+        "_postman_id": "0a7081e9-a773-4468-818c-d797feb65afc",
+        "name": "feeding-routines",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "ping feeding",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:6150/feeding-routines/ping",
+                    "path": [
+                        "feeding-routines",
+                        "ping"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "6150"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5Y2I2M2EyZS03NmM1LTRiOGUtODQzNC1jZDczMzRhMTE3YjAiLCJpYXQiOjE3MTM5MjIwMjcsImV4cCI6MTcxMzkzMjgyNywicm9sZSI6MX0.5LkIYIuhWKXP90veBzp7YIzLIF38D8-fWdSke9xtgmk",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "agregar perfil alimenticio",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "localhost:6150/feeding-routines",
+                    "path": [
+                        "feeding-routines"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "6150"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "  {\n    \"meals_per_day\": 3,\n    \"alergies\": \"Ninguna\",\n    \"health_issues\": \"Arritmia\",\n    \"time_to_cook\": 10\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5Y2I2M2EyZS03NmM1LTRiOGUtODQzNC1jZDczMzRhMTE3YjAiLCJpYXQiOjE3MTM5MjIwMjcsImV4cCI6MTcxMzkzMjgyNywicm9sZSI6MX0.5LkIYIuhWKXP90veBzp7YIzLIF38D8-fWdSke9xtgmk",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "obtener perfiles alimenticios d elos deportistas",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:6150/feeding-routines/sportmen",
+                    "path": [
+                        "feeding-routines",
+                        "sportmen"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "6150"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOGEzYWQ3Ny03ZDNjLTQ3ZTMtOWM0Mi04NThjYTNlYzUyMjIiLCJpYXQiOjE3MTM5MjI2NDQsImV4cCI6MTcxMzkzMzQ0NCwicm9sZSI6Mn0.oV98ir2b-qvp-2thhv19kQLXM6wk1AeQS-zufMLl-Wk",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "get perfil alimennticio",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:6150/feeding-routines",
+                    "path": [
+                        "feeding-routines"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "6150"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5Y2I2M2EyZS03NmM1LTRiOGUtODQzNC1jZDczMzRhMTE3YjAiLCJpYXQiOjE3MTM5MjIwMjcsImV4cCI6MTcxMzkzMjgyNywicm9sZSI6MX0.5LkIYIuhWKXP90veBzp7YIzLIF38D8-fWdSke9xtgmk",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
