@@ -3,7 +3,7 @@ from flask import request
 
 from src.database.session import Session
 from src.models.feed_profile_model import FeedProfileModel
-from src.schemas.feed_profile_schema import FeedProfileDeserializedSchema, FeedProfileSerializedSchema
+from src.schemas.feed_profile_schema import FeedProfileDeserializedSchema, FeedProfileSerializedSchema, FeedProfilesSerializedSchema
 from src.utils.authorization import authorization
 
 class FeedProfileController(Resource):
@@ -48,3 +48,17 @@ class FeedProfileController(Resource):
         profiles = [feed_profile_schema.dump(profile) for profile in query]
         return {"profiles":profiles}, 200
 
+
+class FeedProfilesController(Resource):
+    method_decorators = [authorization]
+    def get(self, **kwargs):
+        feed_profile_schema = FeedProfilesSerializedSchema()
+        if kwargs["user"]["role"] == 2:
+            session = Session()
+            query = session.query(FeedProfileModel)
+            session.close()
+            
+            profiles = [feed_profile_schema.dump(profile) for profile in query]
+            return {"profiles":profiles}, 200
+        else:
+            return "no eres partner", 401
