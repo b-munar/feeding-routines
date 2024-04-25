@@ -186,14 +186,35 @@ Retorna rutina de alimentacion de todos los deportistas. Solo los partners puede
 
 ```json
 {
-    "profiles": [
-        {
-            "id": "cc8f6ebf-ce9a-4170-af17-5d04c55cd167",
-            "meals_per_day": 3,
-            "alergies": "Ninguna",
-            "health_issues": "Arritmia",
-            "time_to_cook": 10
-        },
+  "profiles": [
+    {
+      "id": "22e7359e-25e2-40f2-9db6-77a43c25e71d",
+      "user": "28a3ad77-7d3c-47e3-9c42-858ca3ec5222",
+      "meals_per_day": 3,
+      "alergies": "Ninguna",
+      "health_issues": "Arritmia",
+      "time_to_cook": 10,
+      "user_info": {
+        "sportmen": {
+          "name": "",
+          "last_name": "",
+          "age": 0,
+          "weight": 0,
+          "height": 0,
+          "gender": "",
+          "identification_type": "",
+          "identification": "",
+          "country_birth": "",
+          "city_birth": "",
+          "country_residence": "",
+          "city_residence": "",
+          "length_residence": 0,
+          "created_at": "0001-01-01T00:00:00Z",
+          "updated_at": "0001-01-01T00:00:00Z",
+          "sports": null
+        }
+      }
+    },
         {
             "id": "3b601709-ff3f-4eec-88fa-6764169b3429",
             "meals_per_day": 3,
