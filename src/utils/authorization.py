@@ -18,6 +18,7 @@ def authorization(func):
             token = request.headers.get("Authorization").split(" ")[1]
             
             headers = {"Content-Type": "application/json", 
+                       "Accept": "application/json",
                        "Authorization": f"Bearer {token}"
                     }
             

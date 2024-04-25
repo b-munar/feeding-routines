@@ -1,5 +1,7 @@
 from flask_restful import Resource
 from flask import request
+import requests
+import os
 
 from src.database.session import Session
 from src.models.feed_profile_model import FeedProfileModel
@@ -59,6 +61,22 @@ class FeedProfilesController(Resource):
             session.close()
             
             profiles = [feed_profile_schema.dump(profile) for profile in query]
+
+            for pro in profiles: 
+
+                token = request.headers.get("Authorization").split(" ")[1]
+                
+                headers = {"Content-Type": "application/json", 
+                           "Accept": "application/json",
+                        "Authorization": f"Bearer {token}"
+                        }
+
+                reqUrl = os.getenv('SPORT_HOST')+":"+os.getenv('SPORT_PORT')+os.getenv('SPORT_PATH_GET')
+                json_data = {"user": pro["user"]}
+                response = requests.request("POST", reqUrl, json=json_data, headers=headers)
+                pro["user_info"] = response.json()
+
+
             return {"profiles":profiles}, 200
         else:
             return "no eres partner", 401
