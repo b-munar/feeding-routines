@@ -71,7 +71,7 @@ class FeedProfilesController(Resource):
                         "Authorization": f"Bearer {token}"
                         }
 
-                reqUrl = os.getenv('SPORT_HOST')+":"+os.getenv('SPORT_PORT')+os.getenv('SPORT_PATH_GET')
+                reqUrl = os.getenv('SPORT_HOST')+":"+os.getenv('SPORT_PORT')+os.getenv('SPORT_PATH_GET_INFO')
                 json_data = {"user": pro["user"]}
                 response = requests.request("POST", reqUrl, json=json_data, headers=headers)
                 pro["user_info"] = response.json()
