@@ -40,7 +40,7 @@ class FoodPlanController(Resource):
             new_day = FoodPlanDaysModel(day=day["day"], food_plan_id = new_food_plan.id)
             session.add(new_day)
             session.flush() 
-            new_meal = MealsModel(food_play_days_id= new_day.id,breakfast=day["meals"]["breakfast"],lunch=day["meals"]["lunch"],dinner=day["meals"]["dinner"])
+            new_meal = MealsModel(food_plan_days_id= new_day.id,breakfast=day["meals"]["breakfast"],lunch=day["meals"]["lunch"],dinner=day["meals"]["dinner"])
             session.add(new_meal)
             session.flush()
         session.commit()

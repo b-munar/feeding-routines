@@ -25,7 +25,7 @@ class MealsSerializedSchema(Schema):
 
 class FoodPlanDaysSerializedSchema(Schema):
     day = fields.String()
-    meals = fields.List(fields.Nested(MealsDeserializedSchema))
+    meals = fields.Nested(MealsDeserializedSchema)
     
 class FoodPlanSerializedSchema(Schema):
     partner = fields.UUID()

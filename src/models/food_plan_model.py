@@ -14,20 +14,22 @@ class MealsModel(Base):
     lunch= Column(String(), nullable=False)
     amsnack= Column(String(), nullable=True)
     pmsnack = Column(String(), nullable=True)
-    food_play_days_id = Column(UUID(as_uuid=True),ForeignKey("food_plan_days.id"))
+    food_plan_days_id = Column(UUID(as_uuid=True),ForeignKey("food_plan_days.id"))
+    food_plan_days_model = relationship("FoodPlanDaysModel")
     
 class FoodPlanDaysModel(Base):
     __tablename__ = 'food_plan_days'
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
     food_plan_id = Column(UUID(as_uuid=True),ForeignKey("food_plan.id"))
     day= Column(String(), nullable=False)
-    meals = relationship("MealsModel")
+    meals = relationship("MealsModel", lazy="joined", back_populates="food_plan_days_model")
+    food_plan_model = relationship("FoodPlanModel")
     
 class FoodPlanModel(Base):
     __tablename__ = 'food_plan'
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
     partner = Column(UUID(as_uuid=True), nullable=False)
     user=Column(UUID(as_uuid=True), nullable=False)
-    days = relationship("FoodPlanDaysModel")
+    days = relationship("FoodPlanDaysModel", lazy="joined", back_populates="food_plan_model")
     
 
