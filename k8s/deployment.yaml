@@ -70,6 +70,23 @@ spec:
                 secretKeyRef:
                   name: appsecrets 
                   key: FEEDING_ROUTINES_DB_PORT
+            - name: "SPORT_HOST"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: SPORT_HOST
+            - name: "SPORT_PORT"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: SPORT_PORT
+            - name: "SPORT_PATH_GET_INFO"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: SPORT_PATH_GET_INFO
+
+
 
 
 
