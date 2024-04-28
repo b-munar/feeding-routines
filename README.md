@@ -229,3 +229,173 @@ Retorna rutina de alimentacion de todos los deportistas. Solo los partners puede
 </tr>
 </tbody>
 </table>
+
+## 4. Get feeding-plan as user or partner 
+
+Retorna rutina de alimentacin.
+
+<table>
+<tr>
+<td> Método </td>
+<td> GET </td>
+</tr>
+<tr>
+<td> Ruta </td>
+<td> <strong>localhost:6150/feeding-routines/foodplan</strong> </td>
+</tr>
+<tr>
+<td> Parámetros </td>
+<td> N/A </td>
+</tr>
+<tr>
+<td> Encabezados </td>
+<td>N/A</td>
+</tr>
+<tr>
+<td> Cuerpo </td>
+<td>N/A</td>
+</tr>
+</table>
+
+### Respuestas
+
+<table>
+<tr>
+<th> Código </th>
+<th> Descripción </th>
+<th> Cuerpo </th>
+</tr>
+<tbody>
+<td> 200 </td>
+<td>En caso de exito</td>
+<td>
+
+```json
+{
+    "plans": [
+        {
+            "partner": "29a3ad78-6d3c-46e3-9c42-857ca3ec5220",
+            "user": "29a3ad78-6d3c-46e3-9c42-857ca3ec5220",
+            "days": [
+                {
+                    "day": "Monday",
+                    "meals": [
+                        {
+                            "breakfast": "pollo con papas",
+                            "dinner": "arepacon queso",
+                            "lunch": "arrozcon huevo",
+                            "amsnack": null,
+                            "pmsnack": null
+                        }
+                    ]
+                }
+            ]
+        }
+}
+```
+</td>
+</tr>
+</tbody>
+</table>
+
+## 4. Post food plan 
+
+Permite realizar creación de planes de alimentación.
+
+<table>
+<tr>
+<td> Método </td>
+<td> POST </td>
+</tr>
+<tr>
+<td> Ruta </td>
+<td> <strong>localhost:6150/feeding-routines/foodplan</strong> </td>
+</tr>
+<tr>
+<td> Parámetros </td>
+<td> N/A </td>
+</tr>
+<tr>
+<td> Encabezados </td>
+<td>N/A</td>
+</tr>
+<tr>
+<td> Cuerpo </td>
+<td>
+
+```json
+  {
+    "user": "29a3ad78-6d3c-46e3-9c42-857ca3ec5220",
+    "days": [
+        {
+            "day": "Wednesday",
+            "meals": {
+                "breakfast": "pollo con papas",
+                "lunch": "arrozcon huevo",
+                "dinner": "arepacon queso"
+            }
+        },
+        {
+            "day": "Monday",
+            "meals": {
+                "breakfast": "pollo con papas",
+                "lunch": "arrozcon huevo",
+                "dinner": "arepacon queso"
+            }
+        }
+    ]
+}
+  ```
+</td>
+</tr>
+</table>
+
+### Respuestas
+
+<table>
+<tr>
+<th> Código </th>
+<th> Descripción </th>
+<th> Cuerpo </th>
+</tr>
+<tbody>
+<td> 200 </td>
+<td>En caso de exito</td>
+<td>
+
+```json
+{
+    "partner": "28a3ad77-7d3c-47e3-9c42-858ca3ec5222",
+    "user": "29a3ad78-6d3c-46e3-9c42-857ca3ec5220",
+    "days": [
+        {
+            "day": "WEdnesday",
+            "meals": [
+                {
+                    "breakfast": "pollo con papas",
+                    "dinner": "arepacon queso",
+                    "lunch": "arrozcon huevo",
+                    "amsnack": null,
+                    "pmsnack": null
+                }
+            ]
+        },
+        {
+            "day": "Monday",
+            "meals": [
+                {
+                    "breakfast": "pollo con papas",
+                    "dinner": "arepacon queso",
+                    "lunch": "arrozcon huevo",
+                    "amsnack": null,
+                    "pmsnack": null
+                }
+            ]
+        }
+    ]
+}
+```
+</td>
+</tr>
+</tbody>
+</table>

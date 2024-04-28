@@ -3,6 +3,7 @@ from flask_restful import Api
 from flask_cors import CORS
 from src.controllers.ping_controller import Ping
 from src.controllers.feed_profile_controller import FeedProfileController, FeedProfilesController
+from src.controllers.food_plan_controller import FoodPlanController
 
 def create_app():
     app = Flask(__name__)
@@ -11,6 +12,7 @@ def create_app():
     api.add_resource(Ping, '/feeding-routines/ping')
     api.add_resource(FeedProfileController, '/feeding-routines')
     api.add_resource(FeedProfilesController, '/feeding-routines/sportmen')
+    api.add_resource(FoodPlanController, '/feeding-routines/foodplan')
 
     return app
 
