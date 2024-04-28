@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "02c854e1-356f-4b96-a4c4-ed1885105bab",
+		"name": "feeding-routines",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34080647"
+	},
+	"item": [
+		{
+			"name": "ping feeding",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5Y2I2M2EyZS03NmM1LTRiOGUtODQzNC1jZDczMzRhMTE3YjAiLCJpYXQiOjE3MTM5MjIwMjcsImV4cCI6MTcxMzkzMjgyNywicm9sZSI6MX0.5LkIYIuhWKXP90veBzp7YIzLIF38D8-fWdSke9xtgmk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6150/feeding-routines/ping",
+					"host": [
+						"localhost"
+					],
+					"port": "6150",
+					"path": [
+						"feeding-routines",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar perfil alimenticio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5Y2I2M2EyZS03NmM1LTRiOGUtODQzNC1jZDczMzRhMTE3YjAiLCJpYXQiOjE3MTM5MjIwMjcsImV4cCI6MTcxMzkzMjgyNywicm9sZSI6MX0.5LkIYIuhWKXP90veBzp7YIzLIF38D8-fWdSke9xtgmk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"meals_per_day\": 3,\n    \"alergies\": \"Ninguna\",\n    \"health_issues\": \"Arritmia\",\n    \"time_to_cook\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:6150/feeding-routines",
+					"host": [
+						"localhost"
+					],
+					"port": "6150",
+					"path": [
+						"feeding-routines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener perfiles alimenticios d elos deportistas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOGEzYWQ3Ny03ZDNjLTQ3ZTMtOWM0Mi04NThjYTNlYzUyMjIiLCJpYXQiOjE3MTM5MjI2NDQsImV4cCI6MTcxMzkzMzQ0NCwicm9sZSI6Mn0.oV98ir2b-qvp-2thhv19kQLXM6wk1AeQS-zufMLl-Wk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6150/feeding-routines/sportmen",
+					"host": [
+						"localhost"
+					],
+					"port": "6150",
+					"path": [
+						"feeding-routines",
+						"sportmen"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get perfil alimennticio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5Y2I2M2EyZS03NmM1LTRiOGUtODQzNC1jZDczMzRhMTE3YjAiLCJpYXQiOjE3MTM5MjIwMjcsImV4cCI6MTcxMzkzMjgyNywicm9sZSI6MX0.5LkIYIuhWKXP90veBzp7YIzLIF38D8-fWdSke9xtgmk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6150/feeding-routines",
+					"host": [
+						"localhost"
+					],
+					"port": "6150",
+					"path": [
+						"feeding-routines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get food plan user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOWEzYWQ3OC02ZDNjLTQ2ZTMtOWM0Mi04NTdjYTNlYzUyMjAiLCJpYXQiOjE3MTQyNjAyNDYsImV4cCI6MTcxNDI3MTA0Niwicm9sZSI6MX0.0Q1gh2X3CRqCRSnPX2VpV4qd5SuLok8QOJM3QPbju3s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6150/feeding-routines/foodplan",
+					"host": [
+						"localhost"
+					],
+					"port": "6150",
+					"path": [
+						"feeding-routines",
+						"foodplan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "food_plan_partner_creare",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOGEzYWQ3Ny03ZDNjLTQ3ZTMtOWM0Mi04NThjYTNlYzUyMjIiLCJpYXQiOjE3MTQyNDA2ODYsImV4cCI6MTcxNDI1MTQ4Niwicm9sZSI6Mn0.EtE6J3AZVwsIGf42AE8XbkBUSnpb7aen3oTphlDjcCk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"29a3ad78-6d3c-46e3-9c42-857ca3ec5220\",\n    \"days\": [\n        {\n            \"day\": \"Monday\",\n            \"meals\": {\n                \"breakfast\": \"pollo con papas\",\n                \"lunch\": \"arrozcon huevo \",\n                \"dinner\": \"arepacon queso,\"\n            }\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:6150/feeding-routines/foodplan",
+					"host": [
+						"localhost"
+					],
+					"port": "6150",
+					"path": [
+						"feeding-routines",
+						"foodplan"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
