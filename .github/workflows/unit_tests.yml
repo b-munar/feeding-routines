@@ -1,0 +1,26 @@
+name: Unit tests
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+jobs:
+  test_feeding_routines:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build
+        run: docker build -t feeding-routines-image .
+      - name: Test
+        run: docker run --rm --network="host" -e TEST=true -e FEEDING_ROUTINES_DB_HOST='localhost' -e FEEDING_ROUTINES_DB_PORT='5432' -e FEEDING_ROUTINES_DB_PASSWORD='postgres' -e FEEDING_ROUTINES_DB_USER='postgres' -e FEEDING_ROUTINES_DB_NAME='postgres' feeding-routines-image
